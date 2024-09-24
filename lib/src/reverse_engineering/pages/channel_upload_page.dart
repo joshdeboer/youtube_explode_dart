@@ -191,7 +191,7 @@ class _InitialData extends InitialData {
       return null;
     }
     return ChannelVideo(
-      VideoId((video.getT<String>('videoId') ?? video.getT<String>('entityId')?.split('-').last)!),
+      VideoId((video.getT<String>('videoId') ?? video.get('onTap')?.get('innertubeCommand')?.get('reelWatchEndpoint').getT<String>('videoId'))!),
       video.get('title')?.getT<String>('simpleText') ??
           video.get('title')?.getList('runs')?.map((e) => e['text']).join() ??
           '',
